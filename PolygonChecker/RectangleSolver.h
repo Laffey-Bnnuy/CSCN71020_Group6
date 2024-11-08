@@ -6,7 +6,7 @@
 typedef struct Point {
 	float x;
 	float y;
-}POINT;
+}POINT,POINT;
 bool ArraySwap(int i, int j, POINT array[ARRAY_LENGTH]);
 bool Sorting(POINT array[ARRAY_LENGTH]);
 void RectangleInput(POINT array[ARRAY_LENGTH]);

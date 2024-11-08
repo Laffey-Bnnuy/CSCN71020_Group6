@@ -1,4 +1,7 @@
 #include "RectangleSolver.h"
+#include <string.h>
+#include <stdio.h>
+#include <math.h>
 bool ArraySwap(int i, int j, POINT array[ARRAY_LENGTH]) {
 	float tempx = array[i].x;
 	float tempy = array[i].y;
