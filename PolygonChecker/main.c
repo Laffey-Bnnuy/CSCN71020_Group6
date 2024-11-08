@@ -29,12 +29,12 @@ int main() {
 			float length[SIDE_LENGTH] = { 0 };
 			RectangleInput(array);
 			if (CalculateRectangle(array, length)) {
-				printf("Shape is rectangle\n");
+				printf("\nShape is rectangle\n");
 				printf("It's perimeter is: %f\n", PerimeterCalculate(length));
 				printf("It's area is: %f\n", AreaCalculate(length));
 			}
 			else {
-				printf("Shape is not rectangle\n");
+				printf("\nShape is not rectangle\n");
 				printf("It's perimeter is: %f\n", PerimeterCalculate(length));
 			}
 			break;
