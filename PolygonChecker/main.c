@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-
+#include "RectangleSolver.h"
 #include "main.h"
 #include "triangleSolver.h"
 
@@ -23,6 +23,21 @@ int main() {
 			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			printf_s("%s\n", result);
 			break;
+		case 2:
+			printf_s("Rectangle selected.\n");
+			POINT array[ARRAY_LENGTH] = { 0 };
+			float length[SIDE_LENGTH] = { 0 };
+			RectangleInput(array);
+			if (CalculateRectangle(array, length)) {
+				printf("Shape is rectangle\n");
+				printf("It's perimeter is: %f\n", PerimeterCalculate(length));
+				printf("It's area is: %f\n", AreaCalculate(length));
+			}
+			else {
+				printf("Shape is not rectangle\n");
+				printf("It's perimeter is: %f\n", PerimeterCalculate(length));
+			}
+			break;
 		case 0:
 			continueProgram = false;
 			break;
@@ -44,6 +59,7 @@ void printWelcome() {
 
 int printShapeMenu() {
 	printf_s("1. Triangle\n");
+	printf_s("2. Rectangle\n");
 	printf_s("0. Exit\n");
 
 	int shapeChoice;
