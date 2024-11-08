@@ -60,6 +60,9 @@ bool CalculateRectangle(POINT array[ARRAY_LENGTH], float length[SIDE_LENGTH]) {
 		return true;
 	}
 	return false;
+	for (int i = 0; i < 4; i++) {
+		printf("%f %f\n", array[i].x, array[i].y);
+	}
 }
 float AreaCalculate(float length[SIDE_LENGTH]) {
 	return length[0] * length[1];

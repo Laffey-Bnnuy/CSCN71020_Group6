@@ -7,6 +7,8 @@
 int side = 0;
 
 int main() {
+	POINT array[ARRAY_LENGTH] = { 0 };
+	float length[SIDE_LENGTH] = { 0 };
 	bool continueProgram = true;
 	while (continueProgram) {
 		printWelcome();
@@ -25,8 +27,6 @@ int main() {
 			break;
 		case 2:
 			printf_s("Rectangle selected.\n");
-			POINT array[ARRAY_LENGTH] = { 0 };
-			float length[SIDE_LENGTH] = { 0 };
 			RectangleInput(array);
 			if (CalculateRectangle(array, length)) {
 				printf("\nShape is rectangle\n");
