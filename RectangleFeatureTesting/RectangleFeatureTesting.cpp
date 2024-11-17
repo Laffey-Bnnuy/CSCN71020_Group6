@@ -129,5 +129,35 @@ namespace UnitTest
 
             Assert::AreEqual(expectedArea, actualArea, 0.01f, L"area calculation failed for negative values.");
         }
+        // Test cases for perimeter calculate function
+        TEST_METHOD(PerimeterCalculatePositiveValues)
+        {
+            float length[SIDE_LENGTH] = { 5.0f, 10.0f, 5.0f, 10.0f };
+            float expectedPerimeter = 30.0f;
+
+            float actualPerimeter = PerimeterCalculate(length);
+
+            Assert::AreEqual(expectedPerimeter, actualPerimeter, 0.01f, L"Perimeter calculation failed for positive values.");
+        }
+
+        TEST_METHOD(PerimeterCalculateZeroValues)
+        {
+            float length[SIDE_LENGTH] = { 0.0f, 0.0f, 0.0f, 0.0f };
+            float expectedPerimeter = 0.0f;
+
+            float actualPerimeter = PerimeterCalculate(length);
+
+            Assert::AreEqual(expectedPerimeter, actualPerimeter, 0.01f, L"Perimeter calculation failed for zero values.");
+        }
+
+        TEST_METHOD(PerimeterCalculateNegativeValues)
+        {
+            float length[SIDE_LENGTH] = { -5.0f, -10.0f, -5.0f, -10.0f };
+            float expectedPerimeter = -30.0f;
+
+            float actualPerimeter = PerimeterCalculate(length);
+
+            Assert::AreEqual(expectedPerimeter, actualPerimeter, 0.01f, L"Perimeter calculation failed for negative values.");
+        }
     };
 }
