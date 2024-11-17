@@ -47,7 +47,7 @@ namespace UnitTest
             POINT points[ARRAY_LENGTH] = { {5, 5}, {8, 8}, {10, 10}, {14, 14} };
             POINT expected[ARRAY_LENGTH] = { {5, 5}, {8, 8}, {10, 10}, {14, 14} };
 
-            ArraySwap(2, 2, points); 
+            ArraySwap(2, 2, points);
 
             for (int i = 0; i < ARRAY_LENGTH; ++i)
             {
@@ -92,12 +92,42 @@ namespace UnitTest
 
             Sorting(points);
 
-         
+
             for (int i = 0; i < ARRAY_LENGTH; ++i)
             {
                 Assert::AreEqual(expected[i].x, points[i].x);
                 Assert::AreEqual(expected[i].y, points[i].y);
             }
+        }
+        // test case for area calculate area calculate function 
+        TEST_METHOD(AreaCalculatePositiveValues)
+        {
+            float length[SIDE_LENGTH] = { 5.0f, 10.0f, 0.0f, 0.0f }; // Only first two are used
+            float expectedArea = 50.0f;
+
+            float actualArea = AreaCalculate(length);
+
+            Assert::AreEqual(expectedArea, actualArea, 0.01f, L"area calculation failed for positive values.");
+        }
+
+        TEST_METHOD(AreaCalculateZeroValues)
+        {
+            float length[SIDE_LENGTH] = { 0.0f, 10.0f, 0.0f, 0.0f }; // First value is zero
+            float expectedArea = 0.0f;
+
+            float actualArea = AreaCalculate(length);
+
+            Assert::AreEqual(expectedArea, actualArea, 0.01f, L"area calculation failed for zero values.");
+        }
+
+        TEST_METHOD(AreaCalculateNegativeValues)
+        {
+            float length[SIDE_LENGTH] = { -5.0f, 10.0f, 0.0f, 0.0f }; // First value is negative
+            float expectedArea = -50.0f;
+
+            float actualArea = AreaCalculate(length);
+
+            Assert::AreEqual(expectedArea, actualArea, 0.01f, L"area calculation failed for negative values.");
         }
     };
 }

@@ -72,4 +72,4 @@ float AreaCalculate(float length[SIDE_LENGTH]) {
 }
 float PerimeterCalculate(float length[SIDE_LENGTH]) {
 	return length[0] + length[1] + length[2] + length[3];
-}
+} 
