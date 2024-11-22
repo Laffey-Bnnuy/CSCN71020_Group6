@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 #include "triangleSolver.h"
-
+#define M_PI 3.14159265358979323846
 char* analyzeTriangle(int side1, int side2, int side3) {
 	char* result = "";
 	if (side1+side2 <= side3 || side1 + side3 <= side2 || side3 + side2 <= side1) {
@@ -20,5 +20,10 @@ char* analyzeTriangle(int side1, int side2, int side3) {
 		result = "Scalene triangle";
 	}
 
+	return result;
+}
+
+float AngleSolver(int side1, int side2, int side3) {
+	float result = acos(((side2 * side2 + side3 * side3 - side1 * side1)/(2.0*side2*side3)))*180/M_PI;
 	return result;
 }
