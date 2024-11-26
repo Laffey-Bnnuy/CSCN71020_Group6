@@ -3,7 +3,7 @@
 
 //minh duc nguyen 9002756 - testing for rectangle feature 
 extern "C" {
-#include "RectangleSolver.h" 
+#include "../PolygonChecker/RectangleSolver.h"
 }
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
