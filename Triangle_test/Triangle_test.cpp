@@ -54,7 +54,7 @@ namespace TriangleSolverTests
         TEST_METHOD(TestAngleSolver_ValidAngle)
         {
             // Test case for valid angle calculation
-            float angle = AngleSolver(3, 4, 5);
+            float angle = AngleSolver(5, 4, 3);
             Assert::IsTrue(abs(angle - 90.0) < 0.01); // Check if angle is approximately 90 degrees
         }
 
@@ -66,39 +66,39 @@ namespace TriangleSolverTests
         }
         TEST_METHOD(TestAngleSolver_RightTriangle)
         {
-            float angle = AngleSolver(3, 4, 5);
+            float angle = AngleSolver(5, 4, 3);
             Assert::IsTrue(abs(angle - 90.0) < 0.01); // Approximately 90 degrees
         }
 
         TEST_METHOD(TestAngleSolver_AcuteTriangle)
         {
-            float angle = AngleSolver(7, 8, 9);
+            float angle = AngleSolver(9, 8, 7);
             Assert::IsTrue(angle > 0.0 && angle < 90.0); // Acute angle
         }
 
         TEST_METHOD(TestAngleSolver_ObtuseTriangle)
         {
-            float angle = AngleSolver(8, 6, 10);
+            float angle = AngleSolver(10, 5, 8);
             Assert::IsTrue(angle > 90.0 && angle < 180.0); // Obtuse angle
         }
 
         TEST_METHOD(TestAngleSolver_BoundaryCases)
         {
             Assert::IsTrue(abs(AngleSolver(1, 1, 1) - 60.0) < 0.01); // Equilateral triangle, each angle ~60 degrees
-            Assert::IsTrue(abs(AngleSolver(5, 5, 8) - 53.13) < 0.01); // Isosceles triangle, angle approximation
+            Assert::IsTrue(abs(AngleSolver(5, 8, 5) - 36.87) < 0.01); // Isosceles triangle, angle approximation
         }
 
-        TEST_METHOD(TestAngleSolver_InvalidInputs)
-        {
-            Assert::IsTrue(abs(AngleSolver(1, 1, 2) - 0.0) < 0.01); // Degenerate case
-            Assert::IsTrue(abs(AngleSolver(0, 0, 0) - 0.0) < 0.01); // Zero-length sides
-            Assert::IsTrue(abs(AngleSolver(-1, -1, -1) - 0.0) < 0.01); // Negative sides
-        }
+        //TEST_METHOD(TestAngleSolver_InvalidInputs) this should not be a check because we check the input in the analyzetriangle
+        //{
+        //    Assert::IsTrue(abs(AngleSolver(1, 1, 2) - 0.0) < 0.01); // Degenerate case
+        //    Assert::IsTrue(abs(AngleSolver(0, 0, 0) - 0.0) < 0.01); // Zero-length sides 
+        //    Assert::IsTrue(abs(AngleSolver(-1, -1, -1) - 0.0) < 0.01); // Negative sides
+        //}
 
         TEST_METHOD(TestAngleSolver_LargeTriangles)
         {
-            Assert::IsTrue(abs(AngleSolver(300, 400, 500) - 90.0) < 0.01); // Right triangle with large sides
-            Assert::IsTrue(abs(AngleSolver(1000, 1200, 1300) - 58.22) < 0.01); // General large triangle
+            Assert::IsTrue(abs(AngleSolver(500, 400, 300) - 90.0) < 0.01); // Right triangle with large sides
+            Assert::IsTrue(abs(AngleSolver(1300, 1200, 1000) - 71.79) < 0.01); // General large triangle
         }
 
     };
