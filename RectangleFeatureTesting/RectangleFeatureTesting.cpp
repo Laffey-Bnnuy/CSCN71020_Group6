@@ -102,7 +102,7 @@ namespace UnitTest
         // test case for area calculate area calculate function 
         TEST_METHOD(AreaCalculatePositiveValues)
         {
-            float length[SIDE_LENGTH] = { 5.0f, 10.0f, 0.0f, 0.0f }; // Only first two are used
+            float length[SIDE_LENGTH] = { 5.0f, 10.0f, 0.0f, 0.0f };
             float expectedArea = 50.0f;
 
             float actualArea = AreaCalculate(length);
@@ -112,7 +112,7 @@ namespace UnitTest
 
         TEST_METHOD(AreaCalculateZeroValues)
         {
-            float length[SIDE_LENGTH] = { 0.0f, 10.0f, 0.0f, 0.0f }; // First value is zero
+            float length[SIDE_LENGTH] = { 0.0f, 10.0f, 0.0f, 0.0f };
             float expectedArea = 0.0f;
 
             float actualArea = AreaCalculate(length);
@@ -122,14 +122,14 @@ namespace UnitTest
 
         TEST_METHOD(AreaCalculateNegativeValues)
         {
-            float length[SIDE_LENGTH] = { -5.0f, 10.0f, 0.0f, 0.0f }; // First value is negative
+            float length[SIDE_LENGTH] = { -5.0f, 10.0f, 0.0f, 0.0f };
             float expectedArea = -50.0f;
 
             float actualArea = AreaCalculate(length);
 
             Assert::AreEqual(expectedArea, actualArea, 0.01f, L"area calculation failed for negative values.");
         }
-        // Test cases for perimeter calculate function
+        // test cases for perimeter calculate function
         TEST_METHOD(PerimeterCalculatePositiveValues)
         {
             float length[SIDE_LENGTH] = { 5.0f, 10.0f, 5.0f, 10.0f };
@@ -158,6 +158,41 @@ namespace UnitTest
             float actualPerimeter = PerimeterCalculate(length);
 
             Assert::AreEqual(expectedPerimeter, actualPerimeter, 0.01f, L"Perimeter calculation failed for negative values.");
+        }
+        TEST_METHOD(CalculateRectangleNonRectangle)
+        {
+            // Arrange
+            POINT points[ARRAY_LENGTH] = {
+                {0.0f, 0.0f}, // Point 1
+                {4.0f, 0.0f}, // Point 2
+                {2.0f, 3.0f}, // Point 3
+                {0.0f, 3.0f}  // Point 4
+            };
+            float length[SIDE_LENGTH] = { 0.0f };
+
+            // Act
+            bool isRectangle = CalculateRectangle(points, length);
+
+            // Assert
+            Assert::IsFalse(isRectangle, L"Incorrectly identified a non-rectangle as a rectangle.");
+        }
+
+        TEST_METHOD(CalculateRectangleNegativeCase)
+        {
+            // Arrange
+            POINT points[ARRAY_LENGTH] = {
+                {0.0f, 0.0f}, // Point 1
+                {2.0f, 0.0f}, // Point 2
+                {3.0f, 1.0f}, // Point 3 (not forming a rectangle)
+                {0.0f, 3.0f}  // Point 4
+            };
+            float length[SIDE_LENGTH] = { 0.0f };
+
+            // Act
+            bool isRectangle = CalculateRectangle(points, length);
+
+            // Assert
+            Assert::IsFalse(isRectangle, L"Rectangle identification passed for an invalid rectangle.");
         }
     };
 }
