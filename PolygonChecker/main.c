@@ -25,9 +25,9 @@ int main() {
 			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
 			printf_s("%s\n", result);
 			if (result != "Not a triangle") { 
-				printf_s("The angle in turn %f %f %f", AngleSolver(triangleSides[1], triangleSides[2], triangleSides[0]),
-					AngleSolver(triangleSides[2], triangleSides[0], triangleSides[1]),
-					AngleSolver(triangleSides[0], triangleSides[1], triangleSides[2]));	
+				printf_s("The angle in turn %f %f %f", AngleSolver(triangleSides[0], triangleSides[2], triangleSides[1]),
+					AngleSolver(triangleSides[1], triangleSides[0], triangleSides[2]),
+					AngleSolver(triangleSides[2], triangleSides[1], triangleSides[0]));	
 			}
 			break;
 		case 2:
