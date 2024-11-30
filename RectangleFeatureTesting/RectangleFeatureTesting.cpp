@@ -102,8 +102,8 @@ namespace UnitTest
         // test case for area calculate area calculate function 
         TEST_METHOD(AreaCalculatePositiveValues)
         {
-            float length[SIDE_LENGTH] = { 5.0f, 10.0f, 0.0f, 0.0f };
-            float expectedArea = 50.0f;
+            float length[SIDE_LENGTH] = { 5.6f, 7.8f, 0.0f, 0.0f };
+            float expectedArea = 43.68f;
 
             float actualArea = AreaCalculate(length);
 
@@ -112,7 +112,7 @@ namespace UnitTest
 
         TEST_METHOD(AreaCalculateZeroValues)
         {
-            float length[SIDE_LENGTH] = { 0.0f, 10.0f, 0.0f, 0.0f };
+            float length[SIDE_LENGTH] = { 0.0f, 7.6f, 0.0f, 0.0f };
             float expectedArea = 0.0f;
 
             float actualArea = AreaCalculate(length);
@@ -122,8 +122,8 @@ namespace UnitTest
 
         TEST_METHOD(AreaCalculateNegativeValues)
         {
-            float length[SIDE_LENGTH] = { -5.0f, 10.0f, 0.0f, 0.0f };
-            float expectedArea = -50.0f;
+            float length[SIDE_LENGTH] = { -6.0f, 17.4f, 0.0f, 0.0f };
+            float expectedArea = -104.4f;
 
             float actualArea = AreaCalculate(length);
 
@@ -132,8 +132,8 @@ namespace UnitTest
         // test cases for perimeter calculate function
         TEST_METHOD(PerimeterCalculatePositiveValues)
         {
-            float length[SIDE_LENGTH] = { 5.0f, 10.0f, 5.0f, 10.0f };
-            float expectedPerimeter = 30.0f;
+            float length[SIDE_LENGTH] = { 1.0f, 10.0f, 3.5f, 6.5f };
+            float expectedPerimeter = 21.0f;
 
             float actualPerimeter = PerimeterCalculate(length);
 
@@ -152,8 +152,8 @@ namespace UnitTest
 
         TEST_METHOD(PerimeterCalculateNegativeValues)
         {
-            float length[SIDE_LENGTH] = { -5.0f, -10.0f, -5.0f, -10.0f };
-            float expectedPerimeter = -30.0f;
+            float length[SIDE_LENGTH] = { -1.0f, -10.0f, -3.5f, -6.5f };
+            float expectedPerimeter = -21.0f;
 
             float actualPerimeter = PerimeterCalculate(length);
 
