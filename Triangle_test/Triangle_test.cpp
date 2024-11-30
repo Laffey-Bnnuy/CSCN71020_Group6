@@ -37,7 +37,7 @@ namespace TriangleSolverTests
         TEST_METHOD(TestScaleneTriangle)
         {
             // Test case for scalene triangle
-            Assert::AreEqual("Scalene triangle", analyzeTriangle(3, 4, 5));
+            Assert::AreEqual("Scalene triangle", analyzeTriangle(5, 7, 11));
             Assert::AreEqual("Scalene triangle", analyzeTriangle(7, 10, 5));
         }
 
